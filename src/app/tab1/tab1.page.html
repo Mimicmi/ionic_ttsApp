@@ -2,10 +2,24 @@
   <ion-toolbar>
     <ion-title>
       TTS Speaker
+      {{ locale }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Text to speech</ion-label>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-textarea [(ngModel)]="text2Speech" rows="6" cols="20" placeholder="Enter more information here...">
+    </ion-textarea>
+  </ion-item>
+
   <ion-button (click)="speak()" expand="block" color="secondary">SPEAK</ion-button>
+  <ion-button (click)="paste()" expand="block">Clipboard Paste</ion-button>
+  <ion-button (click)="clear()" expand="block" color="danger">Clear message</ion-button>
+  <ion-button (click)="stopSpeaking()" expand="block" color="danger">Stop speaking</ion-button>
+
+
 </ion-content>

@@ -7,11 +7,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-list-header>
+      <h2>Settings</h2>
+    </ion-list-header>
+    <ion-item lines="full">
+      <ion-label>Language</ion-label>
+      <ion-select (ionChange)="saveLocale($event)" [(ngModel)]="locale">
+        <ion-select-option value="fr-FR">Français</ion-select-option>
+        <ion-select-option value="en-GB">English</ion-select-option>
+        <ion-select-option value="es-ES">Spanish</ion-select-option>
+        <ion-select-option value="ja-JP">Weeb</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label>Speed</ion-label>
+      <ion-range (ionChange)="saveRate($event)" [(ngModel)]="rate" min="0" max="10" pin="true" step="1" snaps="true"
+        ticks="false" color="secondary">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">10</ion-label>
+      </ion-range>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    </ion-item>
+  </ion-list>
 </ion-content>
